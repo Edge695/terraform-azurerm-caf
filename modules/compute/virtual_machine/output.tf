@@ -78,3 +78,7 @@ data "azurerm_managed_disk" "os_disk" {
 output "os_disk_id" {
   value = data.azurerm_managed_disk.os_disk.id
 }
+  
+ output "principal_id" {
+  value = local.os_type == "linux" ? try(azurerm_linux_virtual_machine.vm["linux"].identity.0.principal_id, null) : try(azurerm_windows_virtual_machine.vm["windows"].identity.0.principal_id, null)
+}
