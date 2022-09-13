@@ -1,4 +1,5 @@
 variable "virtual_machine_id" {}
+variable "virtual_machine_principal_id" {}
 variable "extension" {}
 variable "extension_name" {}
 variable "settings" {
