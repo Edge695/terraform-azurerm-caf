@@ -54,18 +54,18 @@ module "vm_extension_microsoft_azure_domainjoin" {
   keyvaults          = local.combined_objects_keyvaults
 }
      
-module "vm_extension_AADLoginForWindows" {
+module "vm_extension_AADJoin" {
   source = "./modules/compute/virtual_machine_extensions"
 
   for_each = {
     for key, value in try(local.compute.virtual_machines, {}) : key => value
-    if try(value.virtual_machine_extensions.AADLoginForWindows, null) != null
+    if try(value.virtual_machine_extensions.AADJoin, null) != null
   }
 
   client_config      = local.client_config                  #refer landingzone.tf for the correct module name.
   virtual_machine_id = module.virtual_machines[each.key].id #refer landingzone.tf for the correct module name.
-  extension          = each.value.virtual_machine_extensions.AADLoginForWindows
-  extension_name     = "aadjoin"
+  extension          = each.value.virtual_machine_extensions.AADJoin
+  extension_name     = "AADJoin"
 }
 
 module "vm_extension_session_host_dscextension" {
