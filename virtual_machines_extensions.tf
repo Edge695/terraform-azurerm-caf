@@ -39,6 +39,21 @@ module "vm_extension_diagnostics" {
   }
 }
 
+module "vm_extension_microsoft_azure_domainjoin" {
+  source = "./modules/compute/virtual_machine_extensions"
+
+  for_each = {
+    for key, value in try(local.compute.virtual_machines, {}) : key => value
+    if try(value.virtual_machine_extensions.microsoft_azure_domainjoin, null) != null
+  }
+
+  client_config      = local.client_config                  #refer landingzone.tf for the correct module name.
+  virtual_machine_id = module.virtual_machines[each.key].id #refer landingzone.tf for the correct module name.
+  extension          = each.value.virtual_machine_extensions.microsoft_azure_domainjoin
+  extension_name     = "microsoft_azure_domainJoin"
+  keyvaults          = local.combined_objects_keyvaults
+}
+     
 module "vm_extension_aadjoin" {
   source = "./modules/compute/virtual_machine_extensions"
 
