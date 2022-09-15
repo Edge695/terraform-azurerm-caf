@@ -39,18 +39,18 @@ module "vm_extension_diagnostics" {
   }
 }
 
-module "vm_extension_aad_join" {
+module "vm_extension_aadjoin" {
   source = "./modules/compute/virtual_machine_extensions"
 
   for_each = {
     for key, value in try(local.compute.virtual_machines, {}) : key => value
-    if try(value.virtual_machine_extensions.aad_join, null) != null
+    if try(value.virtual_machine_extensions.aadjoin, null) != null
   }
 
   client_config      = local.client_config                  #refer landingzone.tf for the correct module name.
   virtual_machine_id = module.virtual_machines[each.key].id #refer landingzone.tf for the correct module name.
-  extension          = each.value.virtual_machine_extensions.aad_join
-  extension_name     = "aad_join"
+  extension          = each.value.virtual_machine_extensions.aadjoin
+  extension_name     = "aadjoin"
 }
 
 module "vm_extension_session_host_dscextension" {
