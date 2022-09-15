@@ -13,11 +13,13 @@ resource "azurerm_virtual_machine_extension" "aadjoin" {
       protected_settings
     ]
   }
-  settings           = <<SETTINGS
-      {
-          "mdmId": "${var.virtual_machine_principal_id}"
-      }
-  SETTINGS
+    settings = jsonencode(
+    {
+      "mdmId": "${var.virtual_machine_principal_id}",
+      "Restart" : try(var.extension.restart, "false")
+    }
+  )
+
   protected_settings = <<PROTECTED_SETTINGS
       {
 
