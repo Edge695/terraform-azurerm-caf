@@ -40,5 +40,4 @@ locals {
   managed_remote_identity_client_id = try(var.managed_identities[var.extension.lz_key][var.extension.managed_identity_key].client_id, "")
   provided_identity_client_id       = try(var.extension.managed_identity_id, "")
   managed_identity_client_id        = try(coalesce(local.managed_local_identity_client_id, local.managed_remote_identity_client_id, local.provided_identity_client_id), "")
-  vm_principal_id                   = try(var.virtual_machine_principal_id, "")
 }
