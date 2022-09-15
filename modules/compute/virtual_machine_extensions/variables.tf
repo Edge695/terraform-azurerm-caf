@@ -1,5 +1,4 @@
 variable "virtual_machine_id" {}
-variable "virtual_machine_principal_id" {}
 variable "extension" {}
 variable "extension_name" {}
 variable "settings" {
@@ -24,5 +23,9 @@ variable "storage_accounts" {
   default = {}
 }
 variable "virtual_machine_os_type" {
+  default = {}
+}
+
+variable "virtual_machine_principal_id" {
   default = {}
 }
