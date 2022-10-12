@@ -44,10 +44,6 @@ variable "public_ip_addresses" {
   default = {}
 }
 
-variable "recovery_vaults" {
-  default = {}
-}
-
 variable "storage_accounts" {
   default = {}
 }
