@@ -29,7 +29,6 @@ module "virtual_machines" {
   network_security_groups     = local.combined_objects_network_security_groups
   proximity_placement_groups  = local.combined_objects_proximity_placement_groups
   public_ip_addresses         = local.combined_objects_public_ip_addresses
-  recovery_vaults             = local.combined_objects_recovery_vaults
   settings                    = each.value
   storage_accounts            = local.combined_objects_storage_accounts
   vnets                       = local.combined_objects_networking
