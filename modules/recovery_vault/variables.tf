@@ -28,6 +28,4 @@ variable "private_dns" {
   default = {}
 }
 
-variable "vm_id_" {
-  default = {}
-}
+variable "virtual_machine_id" {}
