@@ -31,4 +31,6 @@ variable "virtual_machines" {
   default = {}
 }
 
-variable "recovery_vaults" {}
+variable "recovery_vaults" {
+  default = {}
+}
