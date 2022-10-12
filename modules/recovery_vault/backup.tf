@@ -15,7 +15,9 @@ resource "azurerm_backup_protected_vm" "backup" {
     try(var.recovery_vaults[var.settings.backup.lz_key][var.settings.backup.vault_key].name, null)
   )
   
-  source_vm_id = var.virtual_machine_id
+  source_vm_id = coalesce(
+    try(var.virtual_machine_id, null)
+  )
   
   backup_policy_id = coalesce(
     try(var.settings.backup.backup_policy_id, null),
