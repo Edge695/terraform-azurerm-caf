@@ -38,3 +38,8 @@ output "rbac_id" {
   description = "Principal Id of the Vault"
   value       = try(azurerm_recovery_services_vault.asr.identity.0.principal_id, null)
 }
+
+output "vm_id" {
+  description = "Id of the VM to enable backup"
+  value       = try(azurerm_windows_virtual_machine.vm.id)
+}
