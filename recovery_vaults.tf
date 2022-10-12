@@ -15,6 +15,7 @@ module "recovery_vaults" {
   vnets               = try(local.combined_objects_networking, {})
   private_endpoints   = try(each.value.private_endpoints, {})
   private_dns         = local.combined_objects_private_dns
+  virtual_machines    = local.combined_objects_virtual_machines
 }
 
 output "recovery_vaults" {
