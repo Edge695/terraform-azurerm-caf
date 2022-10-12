@@ -30,3 +30,5 @@ variable "private_dns" {
 variable "virtual_machines" {
   default = {}
 }
+
+variable "recovery_vaults" {}
