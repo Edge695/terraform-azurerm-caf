@@ -27,9 +27,3 @@ variable "identity" {
 variable "private_dns" {
   default = {}
 }
-variable "virtual_machines" {
-  default = {}
-}
-variable "recovery_vaults" {
-  default = {}
-}
