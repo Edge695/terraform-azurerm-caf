@@ -22,5 +22,5 @@ resource "azurerm_backup_protected_vm" "backup" {
     try(var.recovery_vaults[var.settings.backup.lz_key][var.settings.backup.vault_key].backup_policies.virtual_machines[var.settings.backup.policy_key].id, null)
   )
 
-  source_vm_id = azurerm_windows_virtual_machine.vm[vm_key].name.id
+  source_vm_id = local.os_type == "linux" ? try(azurerm_linux_virtual_machine.vm["linux"].id, null) : try(azurerm_windows_virtual_machine.vm["windows"].id, null)
 }
