@@ -1,4 +1,4 @@
-resource "azurerm_backup_protected_vm" "backup {
+resource "azurerm_backup_protected_vm" "backup" {
   
   resource_group_name = coalesce(
     try(var.settings.backup.backup_vault_rg, null),
