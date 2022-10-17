@@ -90,3 +90,7 @@ variable "dedicated_hosts" {
 variable "recovery_vaults" {
   default = {}
 }
+
+variable "vmbackup" {
+  default = {}
+}
