@@ -1,4 +1,4 @@
-resource "azurerm_backup_protected_vm" "backup" {
+resource "azurerm_backup_protected_vm" "vmbackup" {
   for_each            = try(var.settings.resource_association.Backup, {})
   resource_group_name = try(each.value.rg_key[var.settings.backup.vault_key].resource_group_name, null)
   recovery_vault_name = try(each.value.vault_key[var.settings.backup.vault_key].name, null)
