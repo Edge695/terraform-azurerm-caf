@@ -1,4 +1,4 @@
-module "virtual_machines_resource_associations" {
+module "vmbackup" {
   source = "./modules/compute/virtual_machines_resource_associations"
   
   for_each        = try(var.vmbackup, {}) : key => value
@@ -6,6 +6,6 @@ module "virtual_machines_resource_associations" {
   global_settings = local.global_settings
 }
 
-output "virtual_machines_resource_associations" {
-    value = module.virtual_machines_resource_associations
+output "vmbackup" {
+    value = module.vmbackup
 }
