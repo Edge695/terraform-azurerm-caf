@@ -91,6 +91,6 @@ variable "recovery_vaults" {
   default = {}
 }
 
-variable "vmbackup" {
+variable "resource_association" {
   default = {}
 }
