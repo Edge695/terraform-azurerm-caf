@@ -1,4 +1,4 @@
-module "resource_association" {
+module "resource_assosciation_vmbackup" {
   source = "./modules/compute/virtual_machines"
 
   resource_group_name = var.resource_group_name
