@@ -1,9 +1,7 @@
 module "virtual_machines_resource_associations" {
   source = "./modules/compute/virtual_machines_resource_associations"
   
-  for_each = {
-    for key, value in try(var.resource_associations, {}) : key => value
-  }
+  for_each = local.virtual_machines_resource_associations
 
   settings            = each.value
   global_settings     = local.global_settings
