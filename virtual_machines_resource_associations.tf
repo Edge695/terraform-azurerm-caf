@@ -1,5 +1,5 @@
 module "resource_association" {
-  source = "./modules/compute/resource_association"
+  source = "./modules/compute/virtual_machines"
 
   resource_group_name = var.resource_group_name
   recovery_vault_name = var.recovery_vault_name
