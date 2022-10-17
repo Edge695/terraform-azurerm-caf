@@ -1,4 +1,4 @@
-module "resource_association_vmbackup" {
+module "resource_association" {
   source = "./modules/compute/virtual_machine"
 
   resource_group_name = try(each.value.resource_group_name)
