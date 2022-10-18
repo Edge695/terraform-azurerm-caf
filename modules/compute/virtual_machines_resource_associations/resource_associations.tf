@@ -7,5 +7,5 @@ resource "azurerm_backup_protected_vm" "virtual_machine_resource_associations" {
   resource_group_name = module.resource_groups.resource_group_name
   recovery_vault_name = module.recovery_vaults.name
   backup_policy_id = module.recovery_vaults.backup_policies.id
-  source_vm_id = module.virtual_machines.id
+  source_vm_id = module.virtual_machine.id
 }
