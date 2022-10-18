@@ -417,6 +417,6 @@ variable "resource_provider_registration" {
   default = {}
 }
 
-variable "virtual_machines_resource_associations" {
+variable "resource_associations" {
   default = {}  
 }
