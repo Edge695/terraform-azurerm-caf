@@ -1,4 +1,5 @@
 module "virtual_machines_resource_associations" {
+  depends_on = [module.virtual_machines, module.recovery_vaults]
   source   = "./modules/compute/virtual_machines_resource_associations"
   for_each = var.virtual_machines_resource_associations
 
