@@ -86,11 +86,3 @@ variable "network_security_groups" {
 variable "dedicated_hosts" {
   default = {}
 }
-
-variable "recovery_vaults" {
-  default = {}
-}
-
-variable "resource_association" {
-  default = {}
-}
