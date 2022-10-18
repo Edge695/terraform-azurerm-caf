@@ -4,9 +4,8 @@ locals {
 }
 
 resource "azurerm_backup_protected_vm" "backup" {
-  for_each            = try(var.settings.virtual_machines_resource_associations, {})
-  resource_group_name = try(each.value.resource_group_name, null)
-  recovery_vault_name = try(each.value.recovery_vault_name, null)
-  backup_policy_id    = try(each.value.backup_policy_id, null)
-  source_vm_id        = try(each.value.source_vm_id, null)
+  resource_group_name = try(var.settings.resource_group_name, null)
+  recovery_vault_name = try(var.settings.recovery_vault_name, null)
+  backup_policy_id    = try(var.settings.backup_policy_id, null)
+  source_vm_id        = try(var.settings.source_vm_id, null)
 }
