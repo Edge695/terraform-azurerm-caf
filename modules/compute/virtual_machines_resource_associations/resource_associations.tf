@@ -8,8 +8,10 @@ resource "azurerm_backup_protected_vm" "backup" {
     try(var.settings.backup.backup_vault_name, null),
   )
   
-  # source_vm_id = local.os_type == "linux" ? try(azurerm_linux_virtual_machine.vm["linux"].id, null) : try(azurerm_windows_virtual_machine.vm["windows"].id, null)
-  
+  source_vm_id = coalesce(
+    try(var.settings.backup.source_vm_id, null),
+  )
+   
   backup_policy_id = coalesce(
     try(var.settings.backup.backup_policy_id, null),
   )
