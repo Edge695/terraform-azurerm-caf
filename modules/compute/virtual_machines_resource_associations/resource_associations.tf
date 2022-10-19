@@ -1,11 +1,11 @@
 resource "azurerm_backup_protected_vm" "backup" {
    
   resource_group_name = coalesce(
-    try(var.settings.backup.backup_vault_rg, null),
+    try(var.settings.backup.resource_group_name, null),
   )
   
   recovery_vault_name = coalesce(
-    try(var.settings.backup.backup_vault_name, null),
+    try(var.settings.backup.recovery_vault_name, null),
   )
   
   source_vm_id = coalesce(
