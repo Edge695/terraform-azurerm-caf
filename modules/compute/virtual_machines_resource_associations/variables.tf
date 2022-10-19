@@ -9,3 +9,5 @@ variable "client_config" {
 variable "settings" {
   description = "Settings object."
 }
+
+variable "resource_group_name" {}
