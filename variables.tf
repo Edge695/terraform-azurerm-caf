@@ -416,7 +416,3 @@ variable "iot" {
 variable "resource_provider_registration" {
   default = {}
 }
-
-variable "virtual_machines_resource_associations" {
-  default = {}  
-}
