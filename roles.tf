@@ -155,7 +155,6 @@ locals {
     synapse_workspaces                         = local.combined_objects_synapse_workspaces
     virtual_subnets                            = local.combined_objects_virtual_subnets
     log_analytics                              = local.current_objects_log_analytics
-    compute                                    = local.combined_objects_compute
   }
 
   current_objects_log_analytics = tomap(
